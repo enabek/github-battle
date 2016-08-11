@@ -3,13 +3,14 @@ var ReactRouter = require('react-router');
 var Router = ReactRouter.Router;
 var Route = ReactRouter.Route;
 var IndexRoute = ReactRouter.IndexRoute;
+var hashHistory = ReactRouter.hashHistory;
 var Main = require("../components/Main");
 var Home = require("../components/Home");
 
 var routes = (
-  <Router>
+  <Router history={hashHistory}>
     <Route path='/' component={Main}> //make main component always active
-      <Route path ='/home' component={Home} /> //notice self-closing tag
+      <IndexRoute component={Home} /> //IndexRoute makes /home active when no other routes are
     </Route>
   </Router>
 );
