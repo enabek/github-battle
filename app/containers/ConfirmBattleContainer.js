@@ -5,25 +5,20 @@ var ConfirmBattleContainer = React.createClass({
   contextTypes: {
     router: React.PropTypes.object.isRequired
   },
-  getIntitalState: function() {
-    console.log('getIntitalState');
+  getInitialState: function () {
     return {
       isLoading: true,
-      playerInfo: []
+      playersInfo: [],
     }
   },
-  componentWillMount: function() {
-    console.log('componentWillMount');
-  },
-  componentDidMount: function() {
-    console.log('componentDidMount');
+  componentDidMount: function () {
     var query = this.props.location.query;
     // Fetch info from githup api to update state
   },
-  render: function() {
+  render: function () {
     return (
       <ConfirmBattle
-        isLoading={this.state.isLoading} //property received as 'null'
+        isLoading={this.state.isLoading}
         playersInfo={this.state.playersInfo} />
     )
   }
