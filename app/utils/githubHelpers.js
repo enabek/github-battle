@@ -11,9 +11,13 @@ function getUserInfo (username) {
 var helpers = {
   getPlayersInfo: function (players) {
     return axios.all(players.map(function (username) { //.all takes in array of promises
-      return getUserInfo(username) //returns an array of promises
+      return getUserInfo(username) //callback function
     })).then(function (info) {
-      console.log(info)
+      return info.map(function (user) {
+        return user.data; //modify promise to just show data
+      })
+    }).catch(function (err) {
+      console.warn('Error in getPlayersInfo', err)
     })
   }
 };

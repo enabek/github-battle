@@ -16,6 +16,12 @@ var ConfirmBattleContainer = React.createClass({
     var query = this.props.location.query;
     // Fetch info from githup api to update state
     githubHelpers.getPlayersInfo([query.playerOne, query.playerTwo])
+      .then(function (players) {
+        this.setState({
+          isLoading: false,
+          playersInfo: [players[0], players[1]]
+        })
+      }.bind(this))
   },
   render: function () {
     return (
