@@ -10,7 +10,11 @@ function getUserInfo (username) {
 
 var helpers = {
   getPlayersInfo: function (players) {
-    // fetch data from github
+    return axios.all(players.map(function (username) { //.all takes in array of promises
+      return getUserInfo(username) //returns an array of promises
+    })).then(function (info) {
+      console.log(info)
+    })
   }
 };
 
