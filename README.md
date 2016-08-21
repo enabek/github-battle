@@ -1,1 +1,1 @@
-ReactJS app that compares two GitHub profiles to determine a winner base on stats.
+ReactJS app that compares two GitHub profiles to determine a winner based on stats.
